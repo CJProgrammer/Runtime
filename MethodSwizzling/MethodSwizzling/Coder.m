@@ -11,6 +11,26 @@
 
 @implementation Coder
 
+/*
+runtime.h里面的objc_class：
+struct objc_class {
+    Class isa  OBJC_ISA_AVAILABILITY;
+    
+#if !__OBJC2__
+    Class super_class                                        OBJC2_UNAVAILABLE;
+    const char *name                                         OBJC2_UNAVAILABLE;
+    long version                                             OBJC2_UNAVAILABLE;
+    long info                                                OBJC2_UNAVAILABLE;
+    long instance_size                                       OBJC2_UNAVAILABLE;
+    struct objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;
+    struct objc_method_list **methodLists                    OBJC2_UNAVAILABLE;
+    struct objc_cache *cache                                 OBJC2_UNAVAILABLE;
+    struct objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;
+#endif
+    
+} OBJC2_UNAVAILABLE;
+*/
+
 // load方法中线程安全地进行Method Swizzle
 + (void)load {
     [super load];
